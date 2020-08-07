@@ -1,0 +1,28 @@
+@font-face {
+    font-family: "Faune";
+    font-weight: 400;
+    src: url(assets/faune-bold.woff2), url(assets/faune-bold.woff);
+}
+
+@font-face {
+    font-family: "Faune";
+    font-weight: 400;
+    font-style: italic;
+    src: url(assets/faune-italic.woff2), url(assets/faune-italic.woff);
+}
+
+@font-face {
+    font-family: "Faune";
+    font-weight: 700;
+    src: url(assets/faune-bold.woff2), url(assets/faune-bold.woff);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Faune", Arial;
+}
