@@ -4,6 +4,7 @@ const sentenceTag = document.querySelector('input[type="text"]')
 const typefaceMenu = document.querySelector('select[name="typeface"]')
 const typeSizeSlider = document.querySelector('input[name="typesize"]')
 const lineHeightSlider = document.querySelector('input[name="lineheight"]')
+const letterSpacingSlider = document.querySelector('input[name="letter-spacing"]')
 const italicCheckbox = document.querySelector('input[name="italic"]')
 const fontWeightSlider = document.querySelector('input[name="font-weight"]')
 const colorButtons = document.querySelectorAll('.colors div')
@@ -12,6 +13,7 @@ const outputTag = document.querySelector('.output')
 const originalText = outputTag.value
 const typeSizeDisplay = document.querySelector('.panel__control--font-size')
 const lineHeightDisplay = document.querySelector('.panel__control--line-height')
+const letterSpacingDisplay = document.querySelector('.panel__control--letter-spacing')
 const fontWeightDisplay = document.querySelector('.panel__control--font-weight')
 
 sentenceTag.addEventListener('keyup', function () {
@@ -33,6 +35,11 @@ lineHeightSlider.addEventListener('input', function () {
   lineHeightDisplay.innerHTML = this.value
 })
 
+letterSpacingSlider.addEventListener('input', function () {
+  outputTag.style.letterSpacing = this.value + 'px'
+  letterSpacingDisplay.innerHTML = this.value + 'px'
+})
+
 italicCheckbox.addEventListener('change', function () {
   outputTag.style.fontStyle = this.checked ? 'italic' : 'normal'
 })
@@ -47,7 +54,6 @@ fontWeightSlider.addEventListener('input', function () {
 })
 
 colorButtons.forEach(button => {
-  console.log(button)
   button.addEventListener('click', function () {
     outputTag.style.backgroundColor = this.style.backgroundColor
     outputTag.style.color = this.style.color
