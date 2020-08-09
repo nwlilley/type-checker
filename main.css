@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Grenze:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 @font-face {
     font-family: "Faune";
     font-weight: 400;
@@ -17,6 +19,13 @@
     src: url(assets/faune-bold.woff2), url(assets/faune-bold.woff);
 }
 
+:root {
+    --bg-color: #2a2a2a;
+    --input-bg-color: #575757; 
+    --main-text-color: #ffffff;
+    --trans-white-color: rgba(255, 255, 255, 0.125);
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -30,41 +39,92 @@ html {
 body {
     font-family: "Faune", Arial;
     font-size: 1.6rem;
-    background-color: #2a2a2a;
-    color: #ffffff;
-    margin: 4rem 4rem 4rem 32rem;
+    background-color: var(--bg-color);
+    color: var(--main-text-color);
+    margin: 0 0 0 28rem;
 }
 
 
 input[type="text"] {
     width: 100%;
-    background-color: #575757;
-    color: #ffffff;
+    background-color: var(--input-bg-color);
+    color: var(--main-text-color);
     border: none;
     padding: .5rem .7rem;
+}
+
+input[type="range"] {
+    width: 100%;
+    background: transparent;
+}
+
+select {
+    width: 100%;
 }
 
 label {
     display: block;
     margin: 0 0 .5rem 0;
 }
-.controls {
+.panel {
     position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
     width: 28rem;
-    background-color: #2a2a2a;
+    background-color: var(--bg-color);
     padding: 3rem;
-    border-right: .15rem solid rgba(255, 255, 255, 0.125);
+    border-right: .15rem solid var(--trans-white-color);
 
 }
 
-.controls__title {
+.panel__title {
     font-size: 2.4rem;
     font-weight: 700;
 }
 
-.controls__control {
-    margin: 1rem 0 0 0;
+.panel__control {
+    margin: 2rem 0 0 0;
+}
+
+.panel__control span {
+    color: var(--main-text-color);
+    float: right; 
+    font-style: italic;  
+}
+
+.panel__control--checkbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.output {
+    font-family: "Faune", Arial;
+    font-size: 6rem;
+    width: 100%;
+    background-color: var(--bg-color);
+    color: var(--main-text-color);
+    border: none;
+    outline: none;
+    min-height: 100vh;
+    padding: 4rem;
+}
+
+.colors {
+    display: flex;
+}
+
+.colors div {
+    text-align: center;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    border: .2rem solid var(--trans-white-color);
+    margin: .5rem 1rem 0 0;
+    transition: border .5s;
+    cursor: pointer;
+}
+
+.colors div.selected {
+    border: .3rem solid var(--main-text-color);
 }
